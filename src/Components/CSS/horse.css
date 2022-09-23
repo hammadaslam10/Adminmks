@@ -121,7 +121,7 @@ label {
   cursor: pointer;
 }
 
-*/ .maincontainer {
+.maincontainer {
   display: flex;
   justify-content: space-between;
 }
