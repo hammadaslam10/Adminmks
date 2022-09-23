@@ -1,0 +1,24 @@
+.page{
+    display: flex;
+    gap: 22px;
+    
+}
+.rightsidedata{
+margin-top: 22px;
+width: 100%;
+height: 900px;
+overflow: auto;
+}
+.tr_table_class td img{
+border-radius: 50%;
+height: 100px;
+width: 100px;
+}
+
+.table_delete_btn1{
+    cursor: pointer;
+}
+.plusIconStyle{
+    float: right;
+    cursor: pointer;
+}
