@@ -1,3 +1,3 @@
 window.env = {
-  "API_URL": "https://mksbackend.herokuapp.com/api/v1"
+  "API_URL": "https://mksbackendreal.herokuapp.com/api/v1/"
 };

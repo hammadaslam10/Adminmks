@@ -1,32 +1,31 @@
 import React, { useEffect } from "react";
 import Sidebar from "../../Components/Common/Sidebar";
-import { fetchAds, STATUSES } from "../../redux/getReducer/getAdsSlice";
+import { fetchracecourse, STATUSES } from "../../redux/getReducer/getRaceCourseSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Table from "react-bootstrap/Table";
 import { MdDelete } from "react-icons/md";
-import { remove } from "../../redux/postReducer/PostAds";
+import { remove } from "../../redux/postReducer/PostRaceCourse";
 import { BsPlusCircleFill } from 'react-icons/bs';
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 import Header from "../../Components/Common/Header";
-import { edit } from "../../redux/postReducer/PostAds";
 import {BiEdit} from 'react-icons/bi'
-import { useNavigate } from "react-router-dom";
 
-const Ads = () => {
-  const history = useNavigate()
+const News = () => {
   const dispatch = useDispatch();
-  const { data: allads, status } = useSelector((state) => state.ads);
+  const { data: racecourse, status } = useSelector((state) => state.racecourse);
   useEffect(() => {
-    dispatch(fetchAds());
+    dispatch(fetchracecourse());
   }, []);
-  const handleRemove = (Id) => {
-    dispatch(remove(Id));
-  };
-  let handleEdit = (Id)=>{
 
-    dispatch(edit(Id));
-    history('/adsforms')
-    }  
+  const handleRemove =  (Id) => {
+
+    
+
+ dispatch(remove(Id));
+ 
+   fetchracecourse();
+ 
+  };
   if (status === STATUSES.LOADING) {
     return (
       <h2
@@ -38,6 +37,7 @@ const Ads = () => {
       </h2>
     );
   }
+
 
   if (status === STATUSES.ERROR) {
     return (
@@ -52,7 +52,7 @@ const Ads = () => {
   }
   return (
     <>
-    <Header/>
+    <Header />
     <div className="page">
       <Sidebar />
       <div className="rightsidedata">
@@ -67,15 +67,14 @@ const Ads = () => {
                 <tr>
                   <th>id</th>
                   <th>Image</th>
-                  <th>Title En</th>
-                  <th>Title Ar</th>
-                  <th>Description En</th>
-                  <th>Description Ar</th>
-                  <th>Action</th>
+                  <th>Country</th>
+                  <th>TrackName</th>
+                  <th>TrackLength</th>
+            <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
-              {allads.map((item, index) => {
+                {racecourse.map((item, index) => {
                   return (
                     <>
                       <tr className="tr_table_class">
@@ -83,43 +82,29 @@ const Ads = () => {
                         <td>
                           <img src={item.image} alt="" />
                         </td>
-                        <td>{item.TitleEn}</td>
-                        <td>{item.TitleAr}</td>
-                        <td>{item.DescriptionEn}</td>
-                        <td>{item.DescriptionAr}</td>
-                    
+                        <td>{item.Country}</td>
+                        <td>{item.TrackName}</td>
+                        <td>{item.TrackLength}</td>
+                     
                         <td className="table_delete_btn1">
-            
-            
-            <BiEdit
-              style={{
-                fontSize: "22px",
-              }}
-              onClick={() => handleEdit(item._id)}
-            />
-          </td>
-                    
-                        <td className="table_delete_btn1">
-            
-            
+                        <BiEdit/>
                           <MdDelete
                             style={{
                               fontSize: "22px",
                             }}
-                            onClick={() => handleRemove(item.index)}
+                            onClick={() => handleRemove(item._id)}
                           />
                         </td>
                       </tr>
                     </>
                   );
                 })}
-                
               </tbody>
             </Table>
           </>
         </div>
         <span className="plusIconStyle">
-        <Link to='/adsform'>
+        <Link to='/racecourseform'>
         <BsPlusCircleFill style={{
           fontSize:'22px'
         }}/>
@@ -130,4 +115,4 @@ const Ads = () => {
     </>
   );
 };
-export default Ads;
+export default News;

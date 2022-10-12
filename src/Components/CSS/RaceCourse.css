@@ -1,0 +1,57 @@
+/* 
+.county {
+    height: 55px;
+    margin-bottom: 14px;
+    width: 100%;
+    background-color: white;
+    border: 2px  #19469D solid;
+}
+
+.mainContainer {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    margin: 0 auto;
+    margin-top: 0px;
+    margin-left: auto;
+    margin-top: 10rem;
+}
+
+
+
+.btnDiv > button{
+    margin-top: 10px;
+    background-color:  #19469D;
+    border-radius: 10px;
+    padding: 10px 20px;
+    color: white;
+    display: flex;
+   
+    margin-right: 40px;
+    }
+
+.btnDiv button:hover {
+
+    transform: scale(1.1);
+}
+
+.fileInput {
+
+
+    color: #19469D;
+
+}
+.btnd > button{
+    background-color: #19469D;
+    color: white ;
+    padding :10px 20px;
+border-radius: 10px;
+float: right;
+margin-top: 22px;
+
+}
+
+
+ */

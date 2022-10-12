@@ -19,14 +19,14 @@ const Login = () => {
   };
   return (
     <div>
-      <div class="box-form">
-        <div class="left">
-          <div class="overlay">
+      <div className="box-form">
+        <div className="left">
+          <div className="overlay">
             <h3>MKS Racing</h3>
           </div>
         </div>
-        <div class="right">
-          <div class="inputs">
+        <div className="right">
+          <div className="inputs">
            <form onSubmit={handleSubmit}>
            <input type="text"
              placeholder="User Name"

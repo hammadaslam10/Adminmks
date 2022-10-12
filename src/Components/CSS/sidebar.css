@@ -1,0 +1,27 @@
+.AccordionBody > div{
+    padding: 10px;
+ 
+}
+.AccordionBody > div > .mylink{
+    color: #fff;
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 15.5949px;
+ 
+}
+.accordion-item:last-of-type .accordion-collapse {
+    background-color: #707070;
+    
+}
+.accordion-button:not(.collapsed) {
+    background: linear-gradient(89.98deg, #19469D 23.67%, #00A3FF 97.94%);
+}
+.accordion-button:focus {
+    border-color: none;
+    box-shadow: none;
+}
+.accordion {
+    --bs-accordion-bg: #E8E8E8;
+    --bs-accordion-border-color:none;
+}

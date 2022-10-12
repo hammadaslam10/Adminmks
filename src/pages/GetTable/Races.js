@@ -1,25 +1,26 @@
 import React, { useEffect } from "react";
 import Sidebar from "../../Components/Common/Sidebar";
-import { fetchTrainer, STATUSES } from "../../redux/getReducer/getTrainerSlice";
+import { fetchrace, STATUSES } from "../../redux/getReducer/getRaceSlice";
 import { useDispatch, useSelector } from "react-redux";
-import Table from "react-bootstrap/Table";
-import { MdDelete } from "react-icons/md";
-import { remove } from "../../redux/postReducer/PostTrainer";
-import { BsPlusCircleFill } from "react-icons/bs";
+import { remove } from "../../redux/postReducer/postRace";
 import { Link, useNavigate } from "react-router-dom";
 import Header from "../../Components/Common/Header";
+import "../../Components/CSS/Table.css";
+import ScrollContainer from "react-indiana-drag-scroll";
+import '../../Components/CSS/race.css'
 
-const Statistic = () => {
+const Races = () => {
   const dispatch = useDispatch();
   const history = useNavigate();
-  const { data: trainer, status } = useSelector((state) => state.trainer);
-  useEffect(() => {
-    dispatch(fetchTrainer());
-  }, []);
+  const { data: race, status } = useSelector((state) => state.race);
   const handleRemove = (Id) => {
     dispatch(remove(Id));
-    history("/trainer");
+    history("/races");
   };
+  useEffect(() => {
+    dispatch(fetchrace());
+  }, []);
+
   if (status === STATUSES.LOADING) {
     return (
       <h2
@@ -44,70 +45,86 @@ const Statistic = () => {
     );
   }
   return (
-   <>
-   <Header />
-   <div className="page">
-      <Sidebar />
-      <div className="rightsidedata">
-        <div
-          style={{
-            marginTop: "30px",
-          }}
-        >
-          <>
-            <Table striped bordered hover>
-              <thead>
-                <tr>
-                  <th>id</th>
-                  <th>Image</th>
-                  <th>Name</th>
-                  <th>Age</th>
-                  <th>Detail</th>
-                  <th>Remarks</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {trainer.map((item, index) => {
-                  return (
-                    <>
-                      <tr className="tr_table_class">
-                        <td>{index}</td>
-                        <td>
-                          <img src={item.image} alt="" />
-                        </td>
-                        <td>{item.Name}</td>
-                        <td>{item.Age}</td>
-                        <td>{item.Detail}</td>
-                        <td>{item.Remarks}</td>
-                        <td className="table_delete_btn1">
-                          <MdDelete
-                            style={{
-                              fontSize: "22px",
-                            }}
-                            onClick={() => handleRemove(item._id)}
-                          />
-                        </td>
-                      </tr>
-                    </>
-                  );
-                })}
-              </tbody>
-            </Table>
-          </>
+    <>
+      <Header />
+      <div className="page">
+        <Sidebar />
+        <div className="rightsidedata">
+          <div
+            style={{
+              marginTop: "30px",
+            }}
+          >
+            <div className="Header ">
+              <h4>Race Listings</h4>
+
+              <div>
+                <h6
+                  style={{
+                    marginRight: "100px",
+                    alignItems: "center",
+                    color: "rgba(0, 0, 0, 0.6)",
+                  }}
+                >
+                  Toggle to Arabic
+                </h6>
+
+                <Link to="/raceform">
+                  <button>Add Race</button>
+                </Link>
+              </div>
+            </div>
+
+            <div class="div_maintb">
+              <ScrollContainer className="scroll-container">
+                <table className="Sc">
+                  <thead>
+                    <tr className="trtabletd">
+                      <th>Race Name</th>
+                      <th>Racecource</th>
+                      <th>Description</th>
+                      <th>Sponsor Logo</th>
+                      <th>Race Type</th>
+                      <th>Race Kind</th>
+                      <th>Weather</th>
+                      <th>Prize</th>
+                      <th>Day & Time</th>
+                      <th>Ground</th>
+                      <th># of Horse</th>
+                      <th>Status</th>
+                      
+                    </tr>
+                  </thead>
+                  {
+                    race.map((item) => {
+                      const {RaceStatus} = item;
+                      return(
+                    <tr key={item._id}>
+                    <td style={{
+                      "backgroundColor": `${RaceStatus === "Upcoming" ? '#FF9900': RaceStatus === "cancel" ? '#FF0000' : RaceStatus === "live" ? '#5EC30F': '#FF9900'}`}}>{item.raceName}</td>
+                    <td>{item.raceName}</td>
+                    <td>{item.Description}</td>
+                    <td>{item.raceName}</td>
+                    <td>{item.raceName}</td>
+                    <td>{item.RaceKind}</td>
+                    <td>{item.Weather}</td>
+                    <td>{item.raceName}</td>
+                    <td>{item.DayNTime}</td>
+                    <td>{item.raceName}</td>
+                    <td>{item.Horses.length}</td>
+                    <td>{item.RaceStatus}</td>
+                    
+                  </tr>
+                      )
+                    })
+                  }
+                </table>
+              </ScrollContainer>
+            </div>
+          </div>
         </div>
-        <span className="plusIconStyle">
-          <Link to="/trainerform">
-            <BsPlusCircleFill
-              style={{
-                fontSize: "22px",
-              }}
-            />
-          </Link>
-        </span>
       </div>
-    </div>
-   </>
+    </>
   );
 };
-export default Statistic;
+export default Races;

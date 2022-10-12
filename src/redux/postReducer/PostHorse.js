@@ -6,7 +6,7 @@ const postHorse = createSlice({
     initialState : [],
     reducers:{
         add(state,action){
-          const response = axios.post(`${window.env.API_URL}/updatehorse`,action.payload)
+          const response = axios.post(`${window.env.API_URL}/createhorse`,action.payload)
           return response;
         },
 

@@ -1,24 +1,25 @@
 import React, { useEffect } from "react";
 import Sidebar from "../../Components/Common/Sidebar";
-import { fetchTrainer, STATUSES } from "../../redux/getReducer/getTrainerSlice";
+import { fetchjockey,STATUSES } from "../../redux/getReducer/getJockeySlice";
 import { useDispatch, useSelector } from "react-redux";
 import Table from "react-bootstrap/Table";
 import { MdDelete } from "react-icons/md";
-import { remove } from "../../redux/postReducer/PostTrainer";
+import { remove,add } from "../../redux/postReducer/PostJockey";
 import { BsPlusCircleFill } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
 import Header from "../../Components/Common/Header";
+import {BiEdit} from 'react-icons/bi'
 
 const Statistic = () => {
   const dispatch = useDispatch();
   const history = useNavigate();
-  const { data: trainer, status } = useSelector((state) => state.trainer);
+  const { data: jockey, status } = useSelector((state) => state.jockey);
   useEffect(() => {
-    dispatch(fetchTrainer());
+    dispatch(fetchjockey());
   }, []);
   const handleRemove = (Id) => {
     dispatch(remove(Id));
-    history("/trainer");
+    history("/jockey");
   };
   if (status === STATUSES.LOADING) {
     return (
@@ -55,20 +56,18 @@ const Statistic = () => {
           }}
         >
           <>
-            <Table striped bordered hover>
+            <Table striped bordered hover>.
               <thead>
                 <tr>
                   <th>id</th>
                   <th>Image</th>
-                  <th>Name</th>
+                  <th>JockeyName</th>
                   <th>Age</th>
-                  <th>Detail</th>
-                  <th>Remarks</th>
-                  <th>Action</th>
+                  <th style={{textAlign:'right'}}>Action</th>
                 </tr>
               </thead>
               <tbody>
-                {trainer.map((item, index) => {
+                {jockey.map((item, index) => {
                   return (
                     <>
                       <tr className="tr_table_class">
@@ -78,9 +77,10 @@ const Statistic = () => {
                         </td>
                         <td>{item.Name}</td>
                         <td>{item.Age}</td>
-                        <td>{item.Detail}</td>
-                        <td>{item.Remarks}</td>
+                        <td>{item.TrackName}</td>
+                        <td>{item.TrackNameAr}</td>
                         <td className="table_delete_btn1">
+                         <BiEdit/>
                           <MdDelete
                             style={{
                               fontSize: "22px",
@@ -97,7 +97,7 @@ const Statistic = () => {
           </>
         </div>
         <span className="plusIconStyle">
-          <Link to="/trainerform">
+          <Link to="/jockeyform">
             <BsPlusCircleFill
               style={{
                 fontSize: "22px",

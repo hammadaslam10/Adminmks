@@ -48,104 +48,84 @@ const NewsForm = () => {
         style={{
           marginTop: "30px",
         }}
-      >
-       <div className="container maincontainer">
-          <div className="row">
-            <div className="col-sm-12">
-              <form onSubmit={submit}>
-                <div className="form-row formMain">
-                  <div className="form-group col-md-5 col-lg-5 col-sm-12 ">
-                    <input
-                      type="Text"
-                      className="form-control"
-                      placeholder="Title English"
-                      name="TitleEn"
-                      value={TitleEn}
-                      onChange={e => setTitleEn(e.target.value)}
-                      required
-                    />
-                  </div>
-                  <div className="form-group col-md-5">
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="العنوان عربي"
-                      required
-                      style={{ direction: "rtl" }}
-                      name="TitleAr"
-                      onChange={e => setTitleAr(e.target.value)}
-                    />
-                  </div>
-                </div>
-                <div className="form-row formMain">
-                  <div className="form-group col-md-5 col-lg-5 col-sm-5 ">
-                    <input
-                      type="Text"
-                      className="form-control"
-                      placeholder="SubTitle English"
-                      name="SecondTitleEn"
-                      onChange={e => setSecondTitleEn(e.target.value)}
-                      required
-                    />
-                  </div>
-                  <div className="form-group col-md-5">
-                    <input
-                      type="text"
-                      className="form-control"
-                      name="SecondTitleAr"
-                      placeholder="العنوان الفرعي عربي"
-                      required
-                      onChange={e => setSecondTitleAr(e.target.value)}
-                      style={{ direction: "rtl" }}
-                    />
-                  </div>
-                </div>
-                <div className="form-row formMain">
-                  <div className="form-group col-md-5 col-lg-5 col-sm-5 ">
-                    <textarea
-                      type="Text"
-                      className="form-control"
-                      placeholder="Description English"
-                      name="DescriptionEn"
-                      onChange={e => setDescriptionEn(e.target.value)}
-                    />
-                  </div>
-                  <div className="form-group col-md-5">
-                    <textarea
-                      type="text"
-                      className="form-control"
-                      placeholder="الوصف العربي"
-                      style={{ direction: "rtl" }}
-                      onChange={e => setDescriptionAr(e.target.value)}
-                      name="DescriptionAr"
-                    />
-                  </div>
-                </div>
+      >    
+              <div className='Headers'>
 
-                <div className="formBtnDiv container">
-                  <label>
-                    Enter your File
-                    <input
-                      onChange={fileSelected}
-                      type="file" accept="image/*"
-                      className="fileInput"
-                      name="myFile"
-                    ></input>
-                  </label>
-                  <button type="submit" disabled={!areAllFieldsFilled} className="btn btn-primary">
-                    Submit
-                  </button>
-                </div>
-                <div className="ImageContainer">
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
+
+      Add News
+
+
+
     </div>
-    
+    <div className='form'>
+      <form onSubmit={submit}>
+        <div className="row ">
+          <div className="col-sm">
+            <input placeholder=' TitleEn' onChange={e => setTitleEn(e.target.value)} name='Name' value={TitleEn}
+
+              required
+            ></input>
+
+          </div>
+
+          <div className="col-sm">
+            <input style={{ direction: "rtl" }} placeholder="اسم "  onChange={e => setTitleAr(e.target.value)} name='Name' value={TitleAr}></input>
+
+          </div>
+
+        </div>
+        <div className="row ">
+          <div className="col-sm">
+            <input placeholder='SecondTitleEn' onChange={e => setSecondTitleEn(e.target.value)} name='Name' value={SecondTitleEn}
+              required
+              type='text'
+            ></input>
+
+          </div>
+
+          <div className="col-sm">
+            <input style={{ direction: "rtl" }} type='text' placeholder="اسم المسار" onChange={e => setSecondTitleAr(e.target.value)} name='Name' value={SecondTitleAr}></input>
+
+          </div>
+
+        </div>
+        <div className="row ">
+          <div className="col-sm">
+            <textarea placeholder="Detail" name='Detail' onChange={e => setDescriptionEn (e.target.value)} value={DescriptionEn}></textarea>
+
+          </div>
+
+
+          <div className="col-sm">
+            <textarea placeholder="Detail" name='Detail' onChange={e => setDescriptionAr (e.target.value)} value={DescriptionAr}></textarea>
+
+          </div>
+
+
+        </div>
+      
+     
+
+
+
+
+
+
+
+        <div className='ButtonSection'>
+
+          <input type="file" size="60" onChange={fileSelected} />
+          <button type='submit' className='SubmitButton' disabled={areAllFieldsFilled}>Add News</button>
+
+        </div>
+      </form>
+    </div>
   </div>
+
+
+</div>
+</div>
+
    </>
     
   );

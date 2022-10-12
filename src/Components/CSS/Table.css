@@ -1,0 +1,166 @@
+.Header {
+
+    display: flex;
+    justify-content: space-between;
+    background: linear-gradient(89.98deg, rgba(25, 70, 157, 0.2) 23.67%, rgba(0, 163, 255, 0.2) 97.94%);
+    background-blend-mode: luminosity;
+    border-radius: 0px 20px 0px 20px;
+    width: 1655px;
+    height: 78px;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 30px;
+
+}
+
+.Header button {
+
+    background: linear-gradient(89.98deg, #19469D 23.67%, #00A3FF 97.94%);
+    border-radius: 40px;
+    width: 186px;
+    height: 51px;
+    color: white;
+    border: none;
+
+
+}
+
+.Header h6 {
+    cursor: pointer;
+
+}
+
+.Header>div {
+
+    display: flex;
+    align-items: center;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+.div_maintb {
+    /* height: calc(100vh - 180px); */
+    width: calc(100vw - 100px);
+    overflow: scroll;
+
+}
+
+
+
+
+
+.div_maintb table {
+    border-spacing: 0;
+    margin-top: 10px;
+}
+
+.div_maintb th {
+    position: sticky;
+    top: 0;
+
+    color: #d1d1d1;
+
+    min-width: 300px;
+    padding: 6px;
+
+    font-weight: normal;
+}
+
+.div_maintb td {
+    padding: 6px;
+    color: black;
+}
+
+.div_maintb th:nth-child(1),
+.div_maintb td:nth-child(1) {
+    position: sticky;
+    left: 0;
+
+
+    border-radius: 20px;
+}
+
+
+
+.div_maintb td:nth-child(1) {
+    width: 1998px;
+    height: 58px;
+    padding-left: 29px;
+    background-color: #5EC30F;
+
+}
+
+.div_maintb th:nth-child(1) {
+    z-index: 300;
+}
+
+thead {
+
+
+
+    height: 58px;
+
+
+
+}
+
+.div_maintb th:nth-child(1) {
+
+    background: linear-gradient(89.98deg, #19469D 23.67%, #00A3FF 97.94%);
+
+}
+
+
+.TableData {
+
+    overflow-x: auto;
+    width: 900px;
+
+}
+
+thead {
+    background: linear-gradient(89.98deg, #19469D 23.67%, #00A3FF 97.94%);
+    border-radius: 20% !important;
+    margin-left: -100px;
+}
+
+/* ::-webkit-scrollbar {
+    width: 10px;
+    background-color: blue;
+    background-image: -webkit-linear-gradient(90deg,
+            rgba(255, 255, 255, .2) 25%,
+            transparent 25%,
+            transparent 50%,
+            rgba(255, 255, 255, .2) 50%,
+            rgba(255, 255, 255, .2) 75%,
+            transparent 75%,
+            transparent)
+} */
+
+/* width */
+.div_maintb::-webkit-scrollbar {
+  width: 0px !important;
+}
+
+/* Track */
+.div_maintb::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+/* Handle */
+.div_maintb::-webkit-scrollbar-thumb {
+  background: transparent !important;
+}
+
+/* Handle on hover */
+.div_maintb::-webkit-scrollbar-thumb:hover {
+  background: transparent !important;
+}
+.div_maintb:hover{
+    cursor: grab;
+    transition: all 200ms ease-in-out;
+}

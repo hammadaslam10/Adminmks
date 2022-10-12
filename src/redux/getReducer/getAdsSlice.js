@@ -22,7 +22,7 @@ const getAdsSlice = createSlice({
         .addCase(fetchAds.fulfilled, (state, action) => {
             state.data = action.payload;
             state.status = STATUSES.IDLE
-        })
+        }) 
         .addCase(fetchAds.rejected , (state,action) => {
             state.status = STATUSES.ERROR;
         })

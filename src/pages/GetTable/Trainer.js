@@ -16,12 +16,15 @@ const News = () => {
   const { data: trainer, status } = useSelector((state) => state.trainer);
   const handleRemove = (Id) => {
     dispatch(remove(Id));
-    window.location.reload()
+
   };
+ 
   useEffect(() => {
-    dispatch(fetchTrainer());
+    dispatch(fetchTrainer(trainer));
 
   }, []);
+ 
+
   if (status === STATUSES.LOADING) {
     return (
       <h2

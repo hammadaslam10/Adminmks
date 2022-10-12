@@ -8,13 +8,14 @@ import { remove } from "../../redux/postReducer/PostSponsor";
 import { BsPlusCircleFill } from 'react-icons/bs';
 import { Link } from "react-router-dom";
 import Header from "../../Components/Common/Header";
+import {BiEdit} from 'react-icons/bi'
 
 const News = () => {
   const dispatch = useDispatch();
   const { data: sponsor, status } = useSelector((state) => state.sponsor);
   useEffect(() => {
     dispatch(fetchSponsor());
-  }, [fetchSponsor]);
+  }, []);
   const handleRemove = async (Id) => {
    await dispatch(remove(Id));
    fetchSponsor();
@@ -80,6 +81,7 @@ const News = () => {
                         <td>{item.DescriptionEn}</td>
                         <td>{item.DescriptionAr}</td>
                         <td className="table_delete_btn1">
+                          <BiEdit/>
                           <MdDelete
                             style={{
                               fontSize: "22px",
@@ -98,7 +100,7 @@ const News = () => {
         <span className="plusIconStyle">
         <Link to='/sponsorform'>
         <BsPlusCircleFill style={{
-          fontSize:'22px'
+          fontSize:'34px'
         }}/>
         </Link>
         </span>

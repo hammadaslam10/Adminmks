@@ -24,7 +24,14 @@ const Table = ({ data, column }) => {
           }}
         >
           <>
+
+
+
+          
           <div className="tableOuter">
+
+
+            
       <table>
         <thead>
           <tr>

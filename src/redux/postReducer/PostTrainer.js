@@ -20,3 +20,4 @@ const postTrainer = createSlice({
 
 export const {add , remove} = postTrainer.actions;
 export default postTrainer.reducer;
+
